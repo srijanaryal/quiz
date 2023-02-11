@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'auth.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,18 +33,20 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          MaterialButton(
-            elevation: 0,
-            color: Colors.white,
-            onPressed: () {},
-            child: Text(
-              'Sign in with Google',
-              style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20),
-            ),
-          ),
+          SignInButton(Buttons.Google, onPressed: signWithGoogle),
+
+          // MaterialButton(
+          //   elevation: 0,
+          //   color: Colors.white,
+          //   onPressed: () {},
+          //   child: Text(
+          //     'Sign in with Google',
+          //     style: TextStyle(
+          //         color: Colors.green,
+          //         fontWeight: FontWeight.w700,
+          //         fontSize: 20),
+          //   ),
+          // ),
           SizedBox(
             height: 18,
           ),
