@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'firedb.dart';
+import 'localdb.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -21,6 +23,8 @@ Future<User?> signWithGoogle() async {
     final User? currentUser = await _auth.currentUser;
     assert(currentUser!.uid == user!.uid);
     print(user);
+    await FireDB().createNewUser(user!.displayName.toString(),
+        user.email.toString(), user.photoURL.toString(), user.uid.toString());
   } catch (e) {
     print('ERROR OCCURED');
     print(e);
